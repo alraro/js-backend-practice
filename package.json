@@ -3,9 +3,6 @@
   "version": "1.0.0",
   "description": "node backend practice",
   "main": "index.js",
-  "scripts": {
-    "test": "test"
-  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/alraro/js-backend-practice.git"
@@ -17,6 +14,8 @@
   },
   "homepage": "https://github.com/alraro/js-backend-practice#readme",
   "dependencies": {
-    "express": "^5.1.0"
+    "dotenv": "^17.2.2",
+    "express": "^5.1.0",
+    "run": "^1.5.0"
   }
 }
