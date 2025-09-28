@@ -1,0 +1,22 @@
+{
+  "name": "js-backend-practice",
+  "version": "1.0.0",
+  "description": "node backend practice",
+  "main": "index.js",
+  "scripts": {
+    "test": "test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/alraro/js-backend-practice.git"
+  },
+  "author": "alraro",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/alraro/js-backend-practice/issues"
+  },
+  "homepage": "https://github.com/alraro/js-backend-practice#readme",
+  "dependencies": {
+    "express": "^5.1.0"
+  }
+}
