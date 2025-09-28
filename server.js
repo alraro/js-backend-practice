@@ -17,6 +17,7 @@ function validateEnv() {
 function startExpressApp(port) {
 	console.log("Starting Express server...");
 	const app = express();
+	app.use(express.json());
 	app.use("/users", usersRoutes);
 	app.get("/", (req, res) => {
 		res.send("<h1>Welcome to the Express server!</h1>");
