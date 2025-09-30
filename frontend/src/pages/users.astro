@@ -1,0 +1,62 @@
+---
+import Footer from '../components/Footer.astro';
+import './global.css';
+
+const pageTitle = "About Me";
+
+const identity = {
+    firstName: "Sarah",
+    country: "Canada",
+    occupation: "Technical Writer",
+    hobbies: ["photography", "birdwatching", "baseball"],
+};
+
+const skills = ["HTML", "CSS", "JavaScript", "React", "Astro", "Writing Docs", "Comer pene"];
+
+const skillNumber = skills.length;
+const skillColor = "crimson";
+---
+
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+        <meta name="viewport" content="width=device-width" />
+        <meta name="generator" content={Astro.generator} />
+        <title>{pageTitle}</title>
+        <style define:vars={{ skillColor }}>
+            h1 {
+                color: purple;
+                font-family: "Comic Sans MS", cursive, sans-serif;
+                text-align: center;
+            }
+            .skill {
+                color: var(--skillColor);
+                font-weight: bold;
+            }
+        </style>
+    </head>
+    <body>
+        <h1>Esta es la zona para la gestión de usuarios</h1>
+        <h2>Gestión de usuarios</h2>
+        <p>Desde aquí podrás gestionar los usuarios de la plataforma.</p>
+        <p>
+            Podrás añadir, eliminar o modificar usuarios según tus necesidades.
+        </p>
+        <p>
+            También podrás ver los usuarios disponibles o filtrar por diferentes
+            criterios.
+        </p>
+        <p>Click <a href="/">aquí</a> para volver al inicio.</p>
+        <p>Click <a href="tu_puta_madre">aquí</a> para ver más información.</p>
+        <p>{skillNumber === 0 && "I have no skills."}</p>
+        <p>{skillNumber === 1 && "My skill is:"}</p>
+        <p>{skillNumber > 1 && `My ${skillNumber} skills are:`}</p>
+        <ul>
+            {skills.map((skill) => (
+                <li class="skill">{skill}</li>
+            ))}
+        </ul>
+        <Footer />
+    </body>
+</html>
