@@ -1,16 +1,10 @@
 ---
 import Footer from "../components/Footer.astro";
 import Header from "../components/Header.astro";
-import "./global.css";
+import BaseLayout from "../layouts/BaseLayout.astro";
+import "../styles/global.css";
 
-const pageTitle = "About Me";
-
-const identity = {
-    firstName: "Sarah",
-    country: "Canada",
-    occupation: "Technical Writer",
-    hobbies: ["photography", "birdwatching", "baseball"],
-};
+const pageTitle = "User Management";
 
 const skills = [
     "HTML",
@@ -23,30 +17,10 @@ const skills = [
 ];
 
 const skillNumber = skills.length;
-const skillColor = "crimson";
 ---
 
 <html lang="en">
-    <head>
-        <meta charset="utf-8" />
-        <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-        <meta name="viewport" content="width=device-width" />
-        <meta name="generator" content={Astro.generator} />
-        <title>{pageTitle}</title>
-        <style define:vars={{ skillColor }}>
-            h1 {
-                color: purple;
-                font-family: "Comic Sans MS", cursive, sans-serif;
-                text-align: center;
-            }
-            .skill {
-                color: var(--skillColor);
-                font-weight: bold;
-            }
-        </style>
-    </head>
-    <body>
-        <Header />
+    <BaseLayout pageTitle={pageTitle}>
         <h1>Esta es la zona para la gestión de usuarios</h1>
         <h2>Gestión de usuarios</h2>
         <p>Desde aquí podrás gestionar los usuarios de la plataforma.</p>
@@ -63,9 +37,5 @@ const skillColor = "crimson";
         <ul>
             {skills.map((skill) => <li class="skill">{skill}</li>)}
         </ul>
-        <script>
-            import "../scripts/menu.js";
-        </script>
-        <Footer />
-    </body>
+    </BaseLayout>
 </html>
