@@ -4,6 +4,7 @@ exports.getAllUsers = async (req, res) => {
     console.log("Fetching all users...");
     try {
         const result = await userModel.getAllUsers();
+        console.log("Users fetched successfully:", result);
         res.json(result);
     } catch (error) {
         console.error('Error fetching users:', error);

@@ -1,0 +1,35 @@
+services:
+  db:
+    image: postgres:15
+    container_name: dev_postgres
+    environment:
+      POSTGRES_USER: dev_user
+      POSTGRES_PASSWORD: dev_password
+      POSTGRES_DB: dev_db
+    ports:
+      - "5432:5432"
+    volumes:
+      - db_data:/var/lib/postgresql/data
+      - ./db:/docker-entrypoint-initdb.d
+
+  backend:
+    build: ./backend
+    container_name: dev_backend
+    ports:
+      - "3000:3000"
+    environment:
+      PORT: ${PORT}
+      HOST: ${HOST}
+      DB_HOST: ${DB_HOST}
+      DB_PORT: ${DB_PORT}
+      DB_USER: ${DB_USER}
+      DB_PASSWORD: ${DB_PASSWORD}
+      DB_NAME: ${DB_NAME}
+    depends_on:
+      - db
+    volumes:
+      - ./backend:/app  # Monta el código para hot reload
+      - /app/node_modules # Evita sobreescribir node_modules desde local
+
+volumes:
+  db_data:

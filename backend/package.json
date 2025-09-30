@@ -1,0 +1,30 @@
+{
+    "name": "js-backend-practice",
+    "version": "1.0.0",
+    "description": "node backend practice",
+    "main": "server.js",
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/alraro/js-backend-practice.git"
+    },
+    "author": "alraro",
+    "license": "ISC",
+    "bugs": {
+        "url": "https://github.com/alraro/js-backend-practice/issues"
+    },
+    "homepage": "https://github.com/alraro/js-backend-practice#readme",
+    "scripts": {
+        "dev": "nodemon src/server.js",
+        "start": "node src/server.js",
+        "test": "echo \"No tests yet\" && exit 0"
+    },
+    "dependencies": {
+        "dotenv": "^17.2.2",
+        "express": "^5.1.0",
+        "pg": "^8.16.3",
+        "run": "^1.5.0"
+    },
+    "devDependencies": {
+        "nodemon": "^3.1.10"
+    }
+}
