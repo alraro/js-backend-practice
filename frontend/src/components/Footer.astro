@@ -1,14 +1,15 @@
 ---
-const platform = "github";
-const username = "alraro";
-const repo = "js-backend-practice";
+import Social from "./Social.astro";
 ---
 
 <footer>
-    <p>
-        View on
-        <a href={`https://${platform}.com/${username}/${repo}`}>
-            {platform}
-        </a>
-    </p>
+    <Social platform="github" username="alraro" />
 </footer>
+
+<style>
+  footer {
+    display: flex;
+    gap: 1rem;
+    margin-top: 2rem;
+  }
+</style>

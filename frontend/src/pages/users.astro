@@ -1,6 +1,7 @@
 ---
-import Footer from '../components/Footer.astro';
-import './global.css';
+import Footer from "../components/Footer.astro";
+import Header from "../components/Header.astro";
+import "./global.css";
 
 const pageTitle = "About Me";
 
@@ -11,7 +12,15 @@ const identity = {
     hobbies: ["photography", "birdwatching", "baseball"],
 };
 
-const skills = ["HTML", "CSS", "JavaScript", "React", "Astro", "Writing Docs", "Comer pene"];
+const skills = [
+    "HTML",
+    "CSS",
+    "JavaScript",
+    "React",
+    "Astro",
+    "Writing Docs",
+    "Comer pene",
+];
 
 const skillNumber = skills.length;
 const skillColor = "crimson";
@@ -37,6 +46,7 @@ const skillColor = "crimson";
         </style>
     </head>
     <body>
+        <Header />
         <h1>Esta es la zona para la gestión de usuarios</h1>
         <h2>Gestión de usuarios</h2>
         <p>Desde aquí podrás gestionar los usuarios de la plataforma.</p>
@@ -47,16 +57,15 @@ const skillColor = "crimson";
             También podrás ver los usuarios disponibles o filtrar por diferentes
             criterios.
         </p>
-        <p>Click <a href="/">aquí</a> para volver al inicio.</p>
-        <p>Click <a href="tu_puta_madre">aquí</a> para ver más información.</p>
         <p>{skillNumber === 0 && "I have no skills."}</p>
         <p>{skillNumber === 1 && "My skill is:"}</p>
         <p>{skillNumber > 1 && `My ${skillNumber} skills are:`}</p>
         <ul>
-            {skills.map((skill) => (
-                <li class="skill">{skill}</li>
-            ))}
+            {skills.map((skill) => <li class="skill">{skill}</li>)}
         </ul>
+        <script>
+            import "../scripts/menu.js";
+        </script>
         <Footer />
     </body>
 </html>
