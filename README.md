@@ -1,4 +1,3 @@
-```markdown
 # 🌐 Full-Stack Learning Project
 
 Este repositorio es un proyecto personal con fines de **aprendizaje y práctica**, donde pongo en marcha un stack completo de tecnologías modernas.  
@@ -37,24 +36,23 @@ El objetivo principal es consolidar conocimientos en bases de datos, backend, fr
 ---
 
 ## 📂 Estructura del proyecto (en progreso)
-```
 
 project-root/
 │── backend/ # Node.js + Express API
 │── frontend/ # Astro frontend
 │── database/ # Configuración PostgreSQL
 
-```
-
 ---
 
 ## 🚧 Estado del proyecto
+
 Actualmente este proyecto está en desarrollo activo.
 La finalidad de la aplicación web aún no está definida, pero el repositorio servirá como **muestra de conocimientos técnicos y buenas prácticas**.
 
 ---
 
 ## 💡 Próximos pasos
+
 - [ ] Definir la finalidad principal de la aplicación.
 - [ ] Añadir tests automatizados (unitarios e integración).
 - [ ] Documentar endpoints de la API.
@@ -63,9 +61,10 @@ La finalidad de la aplicación web aún no está definida, pero el repositorio s
 ---
 
 ## 👤 Autor
+
 Desarrollado por **alraro**
 🔗 [Perfil de GitHub](https://github.com/alraro)
 
 ---
-✨ *Este repositorio es parte de mi portafolio en construcción. Está pensado para recruiters, colaboradores y cualquier persona interesada en mi proceso de aprendizaje.*
-```
+
+✨ _Este repositorio es parte de mi portafolio en construcción. Está pensado para recruiters, colaboradores y cualquier persona interesada en mi proceso de aprendizaje._
