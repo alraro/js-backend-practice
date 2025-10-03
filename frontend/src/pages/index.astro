@@ -1,10 +1,12 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
-import Greeting from "../components/Greeting";
-const pageTitle = "Home Page";
+const pageTitle = "Admin Dashboard X";
 ---
 
 <BaseLayout pageTitle={pageTitle}>
-    <h2>My awesome blog subtitle</h2>
-    <Greeting client:load messages={["Hi", "Hello", "Howdy", "Hey there"]} />
+    <h2>Welcome to the Admin Dashboard</h2>
+    <p>This is the main page of the admin panel.</p>
+    <p>Here you can manage the different sections of the platform.</p>
+    <p>Use the navigation menu to access the various features.</p>
+    <p>We hope you have a good experience using our admin panel.</p>
 </BaseLayout>

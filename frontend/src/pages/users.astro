@@ -1,38 +1,16 @@
 ---
+import UserList from "../components/UserList.astro";
 import BaseLayout from "../layouts/BaseLayout.astro";
 import "../styles/global.css";
 
 const pageTitle = "User Management";
-
-const skills = [
-    "HTML",
-    "CSS",
-    "JavaScript",
-    "React",
-    "Astro",
-    "Writing Docs",
-    "Comer pene",
-];
-
-const skillNumber = skills.length;
 ---
 
 <html lang="en">
     <BaseLayout pageTitle={pageTitle}>
-        <h2>Gestión de usuarios</h2>
-        <p>Desde aquí podrás gestionar los usuarios de la plataforma.</p>
-        <p>
-            Podrás añadir, eliminar o modificar usuarios según tus necesidades.
-        </p>
-        <p>
-            También podrás ver los usuarios disponibles o filtrar por diferentes
-            criterios.
-        </p>
-        <p>{skillNumber === 0 && "I have no skills."}</p>
-        <p>{skillNumber === 1 && "My skill is:"}</p>
-        <p>{skillNumber > 1 && `My ${skillNumber} skills are:`}</p>
-        <ul>
-            {skills.map((skill) => <li class="skill">{skill}</li>)}
-        </ul>
+        <p>Here you can see all user parameters and filter them as needed.</p>
+        <p>User list: </p>
+        <UserList />
+
     </BaseLayout>
 </html>
