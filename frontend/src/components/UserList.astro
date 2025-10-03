@@ -1,0 +1,21 @@
+---
+import UserBubble from "./UserBubble.astro";
+
+const limit = 10;
+const page = 1;
+const nameFilter = "";
+
+let users = await fetch(`http://localhost:3000/users?name=${nameFilter}&page=${page}&limit=${limit}`).then(res => res.json());
+if (users.error) {
+    users = [];
+}
+---
+
+<input type="text" id="user-search" placeholder="Search users..." />
+<ul>
+    {
+        users.map((user: any) => (
+            <UserBubble name={user.name} email={user.email} />
+        ))
+    }
+</ul>

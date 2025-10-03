@@ -1,10 +1,9 @@
 const userModel = require('../models/userModel');
 
 exports.getAllUsers = async (req, res) => {
-    console.log("Fetching all users...");
+    const { name = "", page = 1, limit = 25 } = req.query;
     try {
-        const result = await userModel.getAllUsers();
-        console.log("Users fetched successfully:", result);
+        const result = await userModel.getAllUsers(name, page, limit);
         res.json(result);
     } catch (error) {
         console.error('Error fetching users:', error);
