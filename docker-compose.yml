@@ -31,5 +31,16 @@ services:
       - ./backend:/app  # Monta el código para hot reload
       - /app/node_modules # Evita sobreescribir node_modules desde local
 
+  frontend:
+    build: ./frontend
+    container_name: dev_frontend
+    ports:
+      - "4321:4321"
+    depends_on:
+      - backend
+    volumes:
+      - ./frontend:/app  # Monta el código para hot reload
+      - /app/node_modules # Evita sobreescribir node_modules desde local
+
 volumes:
   db_data:
