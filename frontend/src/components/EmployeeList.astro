@@ -1,0 +1,21 @@
+---
+import EmployeeBubble from "./EmployeeBubble.astro";
+
+const limit = 10;
+const page = 1;
+const nameFilter = "";
+
+let employees = await fetch(`http://localhost:3000/employees?name=${nameFilter}&page=${page}&limit=${limit}`).then(res => res.json());
+if (employees.error) {
+    employees = [];
+}
+---
+
+<input type="text" id="employee-search" placeholder="Search employees..." />
+<ul>
+    {
+        employees.map((employee: any) => (
+            <EmployeeBubble name={employee.name} email={employee.email} />
+        ))
+    }
+</ul>

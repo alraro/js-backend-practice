@@ -1,6 +1,6 @@
 const dotenv = require("dotenv");
 const express = require("express");
-const usersRoutes = require("./routes/users");
+const employeesRoutes = require("./routes/employees");
 
 dotenv.config({ path: "./.env" });
 
@@ -18,7 +18,7 @@ function startExpressApp(port, host) {
 	console.log("Starting Express server...");
 	const app = express();
 	app.use(express.json());
-	app.use("/users", usersRoutes);
+	app.use("/employees", employeesRoutes);
 	app.get("/", (req, res) => {
 		res.send("<h1>Welcome to the Express server!</h1>");
 	});
