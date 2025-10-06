@@ -1,6 +1,7 @@
 const dotenv = require("dotenv");
 const express = require("express");
 const employeesRoutes = require("./routes/employees");
+const cors = require("cors");
 
 dotenv.config({ path: "./.env" });
 
@@ -17,6 +18,7 @@ function validateEnv() {
 function startExpressApp(port, host) {
 	console.log("Starting Express server...");
 	const app = express();
+	app.use(cors());
 	app.use(express.json());
 	app.use("/employees", employeesRoutes);
 	app.get("/", (req, res) => {
