@@ -1,5 +1,5 @@
 import { useState, useEffect } from "preact/hooks";
-import UserBubble from "./UserBubble";
+import UserBubble from "./EmployeeBubble";
 
 export default function UserList() {
     console.log("Rendering UserList component");
@@ -16,7 +16,7 @@ export default function UserList() {
         });
         async function fetchUsers() {
             let users = await fetch(
-                `http://localhost:3000/users?name=${nameFilter}&page=${page}&limit=${limit}`
+                `${import.meta.env.BACKEND_URL}/users?name=${nameFilter}&page=${page}&limit=${limit}`
             )
                 .then((res) => res.json())
                 .catch(() => []);

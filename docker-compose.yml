@@ -18,8 +18,8 @@ services:
     ports:
       - "3000:3000"
     environment:
-      PORT: ${PORT}
-      HOST: ${HOST}
+      BACKEND_PORT: ${BACKEND_PORT}
+      BACKEND_HOST: ${BACKEND_HOST}
       DB_HOST: ${DB_HOST}
       DB_PORT: ${DB_PORT}
       DB_USER: ${DB_USER}
@@ -30,12 +30,15 @@ services:
     volumes:
       - ./backend:/app  # Monta el código para hot reload
       - /app/node_modules # Evita sobreescribir node_modules desde local
+    command: sh -c "npm install && npm run dev"
 
   frontend:
     build: ./frontend
     container_name: dev_frontend
     ports:
       - "4321:4321"
+    environment:
+      BACKEND_URL: http://${BACKEND_HOST}:${BACKEND_PORT}
     depends_on:
       - backend
     volumes:

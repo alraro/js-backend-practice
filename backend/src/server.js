@@ -7,7 +7,7 @@ dotenv.config({ path: "./.env" });
 
 function validateEnv() {
 	console.log("Validating environment variables...");
-	const requiredEnvVars = ["DB_USER", "DB_NAME", "DB_PASSWORD", "DB_HOST", "DB_PORT", "PORT", "HOST"];
+	const requiredEnvVars = ["DB_USER", "DB_NAME", "DB_PASSWORD", "DB_HOST", "DB_PORT", "BACKEND_PORT", "BACKEND_HOST"];
 	const missingVars = requiredEnvVars.filter((varName) => !process.env[varName]);
 	if (missingVars.length > 0) {
 		throw new Error(`Missing required environment variables: ${missingVars.join(", ")}`);
@@ -22,7 +22,7 @@ function startExpressApp(port, host) {
 	app.use(express.json());
 	app.use("/employees", employeesRoutes);
 	app.get("/", (req, res) => {
-		res.send("<h1>Welcome to the Express server!</h1>");
+		res.send("<h1>Welcome to tus muertos the Express server!</h1>");
 	});
 	app.listen(port, () => {
 		console.log(`Express server running at http://${host}:${port}/`);
@@ -32,8 +32,8 @@ function startExpressApp(port, host) {
 
 function main() {
 	validateEnv();
-	const PORT = process.env.PORT;
-	const HOST = process.env.HOST;
+	const PORT = process.env.BACKEND_PORT;
+	const HOST = process.env.BACKEND_HOST;
 	const expressApp = startExpressApp(PORT, HOST);
 }
 
