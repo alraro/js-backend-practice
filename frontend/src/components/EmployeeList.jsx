@@ -1,5 +1,6 @@
 import { useState, useEffect } from "preact/hooks";
-import UserBubble from "./EmployeeBubble";
+import EmployeeBubble from "./EmployeeBubble";
+import "../styles/employeeList.css";
 
 export default function EmployeeList() {
   const [limit, setLimit] = useState(5);
@@ -24,17 +25,17 @@ export default function EmployeeList() {
   }, [nameFilter, page, limit]);
 
   return (
-    <div id="user-list">
+    <div id="employee-list">
       <input
         type="text"
-        id="user-search"
+        id="employee-search"
         placeholder="Search employees..."
         value={nameFilter}
         onInput={(e) => setNameFilter(e.target.value)}
       />
       <ul>
         {employees.map((employee) => (
-          <UserBubble name={employee.name} email={employee.email} />
+          <EmployeeBubble key={employee.id} employee={employee} />
         ))}
         <div id="pagination-controls">
           <button

@@ -2,16 +2,14 @@
 import EmployeeList from "../components/EmployeeList.jsx";
 import BaseLayout from "../layouts/BaseLayout.astro";
 import "../styles/global.css";
-import "../styles/employeeList.css";
 
 const pageTitle = "Employee Management";
 ---
 
 <html lang="en">
-    <BaseLayout pageTitle={pageTitle}>
-        <p>Here you can see all employee parameters and filter them as needed.</p>
-        <p>Employee list: </p>
-        <EmployeeList client:load />
-
-    </BaseLayout>
+  <BaseLayout pageTitle={pageTitle}>
+    <p>Here you can see all employee parameters and filter them as needed.</p>
+    <p>Employee list:</p>
+    <EmployeeList client:load />
+  </BaseLayout>
 </html>

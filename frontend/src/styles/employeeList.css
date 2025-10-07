@@ -1,4 +1,4 @@
-.user-bubble {
+.employee-bubble {
     background-color: #232328;
     border-radius: 8px;
     padding: 10px;
@@ -8,7 +8,7 @@
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
-#user-search {
+#employee-search {
     width: 100%;
     padding: 10px;
     margin-bottom: 20px;
@@ -17,7 +17,7 @@
     font-size: 16px;
 }
 
-#user-list ul {
+#employee-list ul {
     list-style: none;
     padding: 0;
 }
