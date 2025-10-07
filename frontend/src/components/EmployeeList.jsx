@@ -17,7 +17,11 @@ export default function EmployeeList() {
             if (employees.error) {
                 employees = [];
             }
-            setEmployees(employees);
+            if (employees.length === 0) {
+                setPage(Math.max(page - 1, 1));
+            } else {
+                setEmployees(employees);
+            }
         }
         fetchEmployees();
     }, [nameFilter, page, limit]);
