@@ -1,22 +1,14 @@
 import { useState, useEffect } from "preact/hooks";
 import UserBubble from "./EmployeeBubble";
 
-export default function UserList() {
-    console.log("Rendering UserList component");
-    const [limit, setLimit] = useState(25);
+export default function EmployeeList() {
+    const [limit, setLimit] = useState(5);
     const [page, setPage] = useState(1);
     const [nameFilter, setNameFilter] = useState("");
-    const [users, setUsers] = useState([]);
+    const [employees, setEmployees] = useState([]);
 
     useEffect(() => {
-        console.log("Effect triggered with params:", {
-            nameFilter,
-            page,
-            limit,
-        });
         async function fetchEmployees() {
-            console.log(`Base url: ${import.meta.env.PUBLIC_BACKEND_URL}`);
-            console.log(`Fetching : ${import.meta.env.PUBLIC_BACKEND_URL}/employees?name=${nameFilter}&page=${page}&limit=${limit}`);
             let employees = await fetch(
                 `${import.meta.env.PUBLIC_BACKEND_URL}/employees?name=${nameFilter}&page=${page}&limit=${limit}`
             )
@@ -25,14 +17,7 @@ export default function UserList() {
             if (employees.error) {
                 employees = [];
             }
-            console.log("Employees fetched:", employees);
-            setUsers(employees);
-            console.log("Employees fetched:", employees);
-            console.log("Fetching employees with params:", {
-                nameFilter,
-                page,
-                limit,
-            });
+            setEmployees(employees);
         }
         fetchEmployees();
     }, [nameFilter, page, limit]);
@@ -42,18 +27,21 @@ export default function UserList() {
             <input
                 type="text"
                 id="user-search"
-                placeholder="Search users..."
+                placeholder="Search employees..."
                 value={nameFilter}
                 onInput={(e) => setNameFilter(e.target.value)}
             />
             <ul>
-                {users.map((user) => (
+                {employees.map((employee) => (
                     <UserBubble
-                        key={user.id || user.email}
-                        name={user.name}
-                        email={user.email}
+                        name={employee.name}
+                        email={employee.email}
                     />
                 ))}
+                <div id="pagination-controls">
+                <button class="pagination-button" id="previous-page-button" onClick={() => setPage(Math.max(page - 1, 1))}>Previous page</button>
+                <button class="pagination-button" id="next-page-button" onClick={() => setPage(page + 1)}>Next page</button>
+                </div>
             </ul>
         </div>
     );

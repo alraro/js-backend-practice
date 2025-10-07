@@ -98,28 +98,3 @@ html.dark {
 .dark a {
     color: #ff9776;
 }
-
-/* User components styles */
-.user-bubble {
-    background-color: #232328;
-    border-radius: 8px;
-    padding: 10px;
-    margin: 5px 0;
-    color: white;
-    font-family: Arial, sans-serif;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-}
-
-#user-search {
-    width: 100%;
-    padding: 10px;
-    margin-bottom: 20px;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    font-size: 16px;
-}
-
-#user-list ul {
-    list-style: none;
-    padding: 0;
-}
