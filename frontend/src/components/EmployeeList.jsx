@@ -14,25 +14,27 @@ export default function UserList() {
             page,
             limit,
         });
-        async function fetchUsers() {
-            let users = await fetch(
-                `${import.meta.env.BACKEND_URL}/users?name=${nameFilter}&page=${page}&limit=${limit}`
+        async function fetchEmployees() {
+            console.log(`Base url: ${import.meta.env.PUBLIC_BACKEND_URL}`);
+            console.log(`Fetching : ${import.meta.env.PUBLIC_BACKEND_URL}/employees?name=${nameFilter}&page=${page}&limit=${limit}`);
+            let employees = await fetch(
+                `${import.meta.env.PUBLIC_BACKEND_URL}/employees?name=${nameFilter}&page=${page}&limit=${limit}`
             )
                 .then((res) => res.json())
                 .catch(() => []);
-            if (users.error) {
-                users = [];
+            if (employees.error) {
+                employees = [];
             }
-            console.log("Users fetched:", users);
-            setUsers(users);
-            console.log("Users fetched:", users);
-            console.log("Fetching users with params:", {
+            console.log("Employees fetched:", employees);
+            setUsers(employees);
+            console.log("Employees fetched:", employees);
+            console.log("Fetching employees with params:", {
                 nameFilter,
                 page,
                 limit,
             });
         }
-        fetchUsers();
+        fetchEmployees();
     }, [nameFilter, page, limit]);
 
     return (

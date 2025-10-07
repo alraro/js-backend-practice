@@ -38,7 +38,7 @@ services:
     ports:
       - "4321:4321"
     environment:
-      BACKEND_URL: http://${BACKEND_HOST}:${BACKEND_PORT}
+      PUBLIC_BACKEND_URL: http://${BACKEND_HOST}:${BACKEND_PORT}
     depends_on:
       - backend
     volumes:
