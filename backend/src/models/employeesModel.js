@@ -4,10 +4,20 @@ exports.getAllEmployees = async (name = "", page = 1, limit = 25) => {
     let query = 'SELECT * FROM employees WHERE name ILIKE $1';
     let params = [`%${name}%`];
 
-    query += ` ORDER BY id LIMIT ${limit} OFFSET ${(page - 1) * limit}`;
-    
+    query += ` ORDER BY id LIMIT $2 OFFSET $3`;
+    params.push(limit, (page - 1) * limit);
+
     const result = await db.query(query, params);
     return result.rows;
+};
+
+exports.getEmployeeCount = async (name = "") => {
+    let params = [`%${name}%`];
+    const result = await db.query(
+        "SELECT COUNT(*) FROM employees WHERE name ILIKE $1",
+        params
+    );
+    return parseInt(result.rows[0].count, 10);
 };
 
 exports.createEmployee = async (email, name) => {
