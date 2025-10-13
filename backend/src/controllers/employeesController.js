@@ -3,9 +3,10 @@ const userModel = require('../models/employeesModel');
 exports.getAllEmployees = async (req, res) => {
     const { name = "", page = 1, limit = 25 } = req.query;
     try {
+        console.log('Fetching employees with params:', { name, page, limit });
         const employees = await userModel.getAllEmployees(name, page, limit);
         const count = await userModel.getEmployeeCount(name);
-        const totalPages = Math.ceil(count / limit);
+        const totalPages = limit == -1 ? 1 : Math.ceil(count / limit);
         const currentPage = Math.min(page, totalPages) || 1;
         const hasNextPage = currentPage < totalPages;
         const hasPrevPage = currentPage > 1;

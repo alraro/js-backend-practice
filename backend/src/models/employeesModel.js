@@ -1,11 +1,14 @@
 const db = require('../db');
 
 exports.getAllEmployees = async (name = "", page = 1, limit = 25) => {
-    let query = 'SELECT * FROM employees WHERE name ILIKE $1';
+    let query = 'SELECT * FROM employees WHERE name ILIKE $1 ORDER BY id';
     let params = [`%${name}%`];
 
-    query += ` ORDER BY id LIMIT $2 OFFSET $3`;
-    params.push(limit, (page - 1) * limit);
+    if (limit != -1) {
+        console.log('Applying pagination with limit:', limit, 'and page:', page);
+        query += ` LIMIT $2 OFFSET $3`;
+        params.push(limit, (page - 1) * limit);
+    }
 
     const result = await db.query(query, params);
     return result.rows;
